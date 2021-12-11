@@ -17,6 +17,10 @@ const getAllNotes = async (req, res) => {
 	}
 };
 
+// @route /api/v1/notes/:id
+// @desc Get single note
+// @param ID -> mongoose ID document
+
 const getSingleNote = async (req, res) => {
 	try {
 		const { id } = req.params;
@@ -33,6 +37,10 @@ const getSingleNote = async (req, res) => {
 	}
 };
 
+// @route /api/v1/notes
+// @desc Create new note
+// @param Body => Name,Complete,Date {Name is required}
+
 const createNewNote = async (req, res) => {
 	try {
 		const newNote = await Note.create(req.body);
@@ -47,6 +55,11 @@ const createNewNote = async (req, res) => {
 		res.status(400).send({ message: 'Error', status: 'failed', err });
 	}
 };
+
+// @route /api/v1/notes/:id
+// @desc Update note
+// @param ID -> mongoose ID document
+// @param Body -> Name,Complete,Date to update field in document
 
 const updateNote = async (req, res) => {
 	try {
@@ -66,6 +79,10 @@ const updateNote = async (req, res) => {
 		res.status(400).send({ message: 'Error', status: 'failed', err });
 	}
 };
+
+// @route /api/v1/notes/:id
+// @desc Delete note
+// @param ID -> mongoose ID document
 
 const deleteNote = async (req, res) => {
 	try {
