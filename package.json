@@ -1,0 +1,22 @@
+{
+	"name": "randomprojects",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"dependencies": {
+		"dotenv": "^10.0.0",
+		"express": "^4.17.1",
+		"morgan": "^1.10.0",
+		"mongoose": "^6.1.1"
+	},
+	"devDependencies": {
+		"nodemon": "^2.0.15"
+	},
+	"scripts": {
+		"start-server:dev": "nodemon ./server.js --watch",
+		"start-server:prod": "set MODE=PRODUCTION && nodemon ./server.js --watch"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC"
+}
