@@ -48,8 +48,45 @@ const createNewNote = async (req, res) => {
 	}
 };
 
+const updateNote = async (req, res) => {
+	try {
+		const { id } = req.params;
+		const updatedNote = await Note.findByIdAndUpdate(id, req.body, {
+			new: true,
+			runValidator: true,
+		});
+		res.status(200).send({
+			message: 'Update note',
+			status: 'success',
+			data: {
+				updatedNote,
+			},
+		});
+	} catch (err) {
+		res.status(400).send({ message: 'Error', status: 'failed', err });
+	}
+};
+
+const deleteNote = async (req, res) => {
+	try {
+		const { id } = req.params;
+		const deletedNote = await Note.findByIdAndDelete(id);
+		res.status(200).send({
+			message: 'Delete note',
+			status: 'success',
+			data: {
+				deletedNote,
+			},
+		});
+	} catch (err) {
+		res.status(400).send({ message: 'Error', status: 'failed', err });
+	}
+};
+
 module.exports = {
 	getAllNotes,
 	createNewNote,
 	getSingleNote,
+	updateNote,
+	deleteNote,
 };
