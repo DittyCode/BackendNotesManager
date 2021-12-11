@@ -1,5 +1,8 @@
 const Note = require('./../models/notes');
 
+// @route /api/v1/notes
+// @desc Get all notes
+
 const getAllNotes = async (req, res) => {
 	try {
 		const notes = await Note.find({});
