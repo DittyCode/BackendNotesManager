@@ -17,6 +17,22 @@ const getAllNotes = async (req, res) => {
 	}
 };
 
+const createNewNote = async (req, res) => {
+	try {
+		const newNote = await Note.create(req.body);
+		res.status(200).send({
+			message: 'Create new note',
+			status: 'success',
+			data: {
+				newNote,
+			},
+		});
+	} catch (err) {
+		res.status(400).send({ message: 'Error', err });
+	}
+};
+
 module.exports = {
 	getAllNotes,
+	createNewNote,
 };

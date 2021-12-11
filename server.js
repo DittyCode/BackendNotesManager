@@ -6,6 +6,8 @@ const noteRoute = require('./routes/notesRoute');
 const db = require('./db/connect');
 const app = express();
 
+app.use(express.json());
+
 if (process.env.MODE === 'DEVELOPMENT') {
 	app.use(morgan('dev'));
 }
